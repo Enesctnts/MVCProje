@@ -20,8 +20,8 @@ namespace EntityLayer.Concrete
         public DateTime ContentDate { get; set; }
 
         public virtual Heading Heading { get; set; }
-       // public int WriterId { get; set; }
-       // public virtual Writer Writer { get; set; }
+       public int? WriterId { get; set; }
+       public virtual Writer Writer { get; set; }
         
 
     }
