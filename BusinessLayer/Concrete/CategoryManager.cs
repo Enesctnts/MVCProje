@@ -11,5 +11,22 @@ namespace BusinessLayer.Concrete
     public class CategoryManager
     {
         GenericRepository<Category> repo = new GenericRepository<Category>();
+
+        public List<Category>GetAll()
+        {
+            return repo.List();
+        }
+
+        public void CategoryAddBl(Category category)
+        {
+            if (category.CategoryName == "" || category.CategoryName.Length < 3 || category.CategoryDescription == "") 
+            {
+
+            }
+            else
+            {
+                repo.Insert(category);
+            }
+        }
     }
 }
