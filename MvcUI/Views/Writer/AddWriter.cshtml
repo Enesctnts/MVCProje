@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Yazar Ekleme Sayfası</h2>
+
+<form class=" form-group" method="post">
+
+    <input type="text" placeholder="Yazar Adı" name="WriterName" class="form-group" />
+    <input type="text" placeholder="Yazar Soyadı" name="WriterSurname" class="form-group" />
+    <input type="text" placeholder="Yazar Mail" name="WriterMail" class="form-group" />
+    <input type="text" placeholder="Yazar Şifresi" name="Password" class="form-group" />
+    <button class="btn btn-info">Ekle</button>
+
+</form>

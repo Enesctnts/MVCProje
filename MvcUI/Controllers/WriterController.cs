@@ -8,34 +8,32 @@ using System.Web.Mvc;
 
 namespace MvcUI.Controllers
 {
-    public class CategoryController : Controller
+    public class WriterController : Controller
     {
-        // GET: Category
         public ActionResult Index()
         {
             return View();
         }
-        CategoryManager categoryManager = new CategoryManager();
 
-        public ActionResult GetCategoryList()
+        WriterManager writerManager = new WriterManager();
+        public ActionResult GetWriterList()
         {
-            var categoryvalues = categoryManager.GetAll();
-            return View(categoryvalues);
+            var writervalues = writerManager.GetAll();
+            return View(writervalues);
         }
 
 
         [HttpGet]// sayfa ilk yüklendiğinde alttaki metod çalışacak
-        public ActionResult AddCategory()
+        public ActionResult AddWriter()
         {
             return View();
         }
 
         [HttpPost]// butona tıklandıgında alttaki metod çalışacak
-        public ActionResult AddCategory(Category category)
+        public ActionResult AddWriter(Writer writer)
         {
-            categoryManager.CategoryAddBl(category);
-            return RedirectToAction("GetCategoryList");
+            writerManager.CategoryAddBl(writer);
+            return RedirectToAction("GetWriterList");
         }
-
     }
 }

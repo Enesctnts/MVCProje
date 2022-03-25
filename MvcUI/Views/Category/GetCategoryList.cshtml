@@ -6,21 +6,25 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h2>Kategori Listeleme</h2>
 
+
+
 <table class="table table-hover">
     <tr>
         <td>Kategori Id</td>
         <td>Kategori Adı</td>
         <td>Kategori Açıklaması</td>
         <td>Kategori Statüsü</td>
-        
+
     </tr>
-    @foreach(var item in Model)
-            {
-                <tr> 
-                        <td>@item.CategoryId</td>  
-                        <td>@item.CategoryName</td>  
-                        <td>@item.CategoryDescription</td>  
-                        <td>@item.CategoryStatus</td>  
-                </tr>
-            }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            <td>@item.CategoryStatus</td>
+        </tr>
+    }
 </table>
+<a href="/Category/AddCategory" class="btn btn-info" >Yeni Kategori</a>
+
