@@ -1,19 +1,49 @@
-﻿
+﻿@model EntityLayer.Concrete.Category
 @{
     ViewBag.Title = "AddCategory";
 }
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+<br />
 <h2>Kategori Ekleme Sayfası</h2>
 
-<form class=" form-group" method="post">
-    
-    <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-group" />
-    <input type="text" placeholder="Kategori Açıklaması" name="CategoryDescription" class="form-group" />
-    <input type="text" placeholder="Kategori Statüsü" name="CategoryStatus" class="form-group" />
-    <button class="btn btn-info">Ekle</button>
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
 
-</form>
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(p => p.CategoryName, new { @class = "form-group" } )
+        @Html.ValidationMessageFor(p => p.CategoryName)
+
+        <br />
+
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(p => p.CategoryDescription , new { @class = "form-group" })
+        @Html.ValidationMessageFor(p => p.CategoryDescription)
+
+        <br />
+
+
+        <button>Kaydet</button>
+
+    </div>
+
+    
+
+}
+
+
+
+
+
+
+@*<form class=" form-group" method="post">
+
+        <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-group" />
+        <input type="text" placeholder="Kategori Açıklaması" name="CategoryDescription" class="form-group" />
+        <input type="text" placeholder="Kategori Statüsü" name="CategoryStatus" class="form-group" />
+        <button class="btn btn-info">Ekle</button>
+
+    </form>*@
 
 

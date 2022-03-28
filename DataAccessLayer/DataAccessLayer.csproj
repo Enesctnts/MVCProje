@@ -51,9 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Migrations\202203240708545_m1.cs" />
     <Compile Include="Migrations\202203240708545_m1.designer.cs">
       <DependentUpon>202203240708545_m1.cs</DependentUpon>

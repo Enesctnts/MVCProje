@@ -1,5 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +18,11 @@ namespace MvcUI.Controllers
         {
             return View();
         }
-        CategoryManager categoryManager = new CategoryManager();
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
         public ActionResult GetCategoryList()
         {
-            var categoryvalues = categoryManager.GetAll();
+            var categoryvalues = categoryManager.GetList();
             return View(categoryvalues);
         }
 
@@ -33,8 +36,22 @@ namespace MvcUI.Controllers
         [HttpPost]// butona tıklandıgında alttaki metod çalışacak
         public ActionResult AddCategory(Category category)
         {
-            categoryManager.CategoryAddBl(category);
-            return RedirectToAction("GetCategoryList");
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult results = categoryValidator.Validate(category);
+            if (results.IsValid)//Geçerli ise
+            {
+                categoryManager.CategoryAddBl(category);
+                return RedirectToAction("GetCategoryList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);    
+                }
+            }
+            return View();
+
         }
 
     }
