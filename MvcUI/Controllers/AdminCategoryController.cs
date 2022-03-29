@@ -59,5 +59,20 @@ namespace MvcUI.Controllers
             categoryManager.CategoryDelete(result);
             return RedirectToAction("GetCategoryList");
         }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var result = categoryManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            categoryManager.CategoryUpdate(category);
+            return RedirectToAction("GetCategoryList");
+        }
+
     }
 }
