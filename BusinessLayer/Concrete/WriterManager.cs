@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,27 +10,41 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class WriterManager
+    public class WriterManager:IWriterService
     {
+        IWriterDal _writerDal;
 
-        GenericRepository<Writer> repo = new GenericRepository<Writer>();
-
-        public List<Writer> GetAll()
+        public WriterManager(IWriterDal writerDal)
         {
-            return repo.List();
+            _writerDal = writerDal;
         }
 
-        public void CategoryAddBl(Writer writer)
+        public void WriterAddBl(Writer writer)
         {
-            if (writer.WriterName == "" || writer.WriterSurname=="" || writer.Password == "" || writer.WriterMail=="")
-            {
 
-            }
-            else
-            {
-                repo.Insert(writer);
-            }
+            _writerDal.Insert(writer);
+
         }
 
+        public void WriterDelete(Writer writer)
+        {
+            _writerDal.Delete(writer);
+        }
+
+        public void WriterUpdate(Writer writer)
+        {
+            _writerDal.Update(writer);
+        }
+
+        public Writer GetById(int id)
+        {
+            return _writerDal.Get(p => p.WriterId == id);
+        }
+
+        public List<Writer> GetList()
+        {
+            return _writerDal.List();
+        }
+        
     }
 }
