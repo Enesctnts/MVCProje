@@ -13,10 +13,16 @@ namespace EntityLayer.Concrete
         public int AboutId { get; set; }
 
         [StringLength(1000)]
-        public string AboutDetails { get; set; }
-        
+        public string AboutDetails1 { get; set; }
+
+        [StringLength(1000)]
+        public string AboutDetails2 { get; set; }
+
         [StringLength(100)]
         public string Image { get; set; }
+
+        [StringLength(100)]
+        public string Image2 { get; set; }
 
     }
 }
