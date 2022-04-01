@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,10 @@ namespace MvcUI.Controllers
             return View();
         }
 
-        WriterManager writerManager = new WriterManager();
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         public ActionResult GetWriterList()
         {
-            var writervalues = writerManager.GetAll();
+            var writervalues = writerManager.GetList();
             return View(writervalues);
         }
 
@@ -32,7 +33,7 @@ namespace MvcUI.Controllers
         [HttpPost]// butona tıklandıgında alttaki metod çalışacak
         public ActionResult AddWriter(Writer writer)
         {
-            writerManager.CategoryAddBl(writer);
+            writerManager.WriterAddBl(writer);
             return RedirectToAction("GetWriterList");
         }
     }

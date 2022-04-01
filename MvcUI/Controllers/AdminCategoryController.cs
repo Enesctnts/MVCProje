@@ -16,7 +16,8 @@ namespace MvcUI.Controllers
         // GET: AdminCategory
         public ActionResult Index()
         {
-            return View();
+            var categoryvalues = categoryManager.GetList();
+            return View(categoryvalues);
         }
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
@@ -41,7 +42,7 @@ namespace MvcUI.Controllers
             if (results.IsValid)//Geçerli ise
             {
                 categoryManager.CategoryAddBl(category);
-                return RedirectToAction("GetCategoryList");
+                return RedirectToAction("Index");
             }
             else
             {

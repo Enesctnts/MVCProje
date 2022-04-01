@@ -5,28 +5,22 @@
     ViewBag.Title = "AddCategory";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<h2>Yeni Kategori Ekleme Sayfası</h2>
+<br />
 @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
 {
-    <h2>Kategori Ekleme Sayfası</h2>
     <div class="form-group">
-
-
-
-        @Html.Label("Kategori Adı : ")
-        @Html.TextBoxFor(p => p.CategoryName)
+        
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(p => p.CategoryName , new {@class = "form-control" })
         @Html.ValidationMessageFor(p => p.CategoryName)
 
-        <br />
 
         @Html.Label("Açıklama : ")
-        @Html.TextAreaFor(p => p.CategoryDescription)
+        @Html.TextAreaFor(p => p.CategoryDescription , new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.CategoryDescription)
-
         <br />
-
-
-        <button>Kaydet</button>
+        <button class="btn btn-info">Kaydet</button>
 
     </div>
 

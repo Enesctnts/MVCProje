@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,11 @@ namespace MvcUI.Controllers
         {
             return View();
         }
-        ContactManager contactManager = new ContactManager();
+        ContactManager contactManager = new ContactManager(new EfContactDal());
 
         public ActionResult GetContactList()
         {
-            var contactvalues = contactManager.GetAll();
+            var contactvalues = contactManager.GetList();
             return View(contactvalues);
         }
 
