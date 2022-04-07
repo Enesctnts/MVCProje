@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete
             _writerDal = writerDal;
         }
 
-        public void WriterAddBl(Writer writer)
+        public void WriterAddBll(Writer writer)
         {
 
             _writerDal.Insert(writer);

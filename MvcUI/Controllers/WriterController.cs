@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,32 +11,72 @@ using System.Web.Mvc;
 
 namespace MvcUI.Controllers
 {
+
     public class WriterController : Controller
     {
+        WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
+
+        // GET: Writer
         public ActionResult Index()
         {
-            return View();
+            var writerValues = wm.GetList();
+            return View(writerValues);
         }
 
-        WriterManager writerManager = new WriterManager(new EfWriterDal());
-        public ActionResult GetWriterList()
-        {
-            var writervalues = writerManager.GetList();
-            return View(writervalues);
-        }
-
-
-        [HttpGet]// sayfa ilk yüklendiğinde alttaki metod çalışacak
+        [HttpGet]
         public ActionResult AddWriter()
         {
             return View();
         }
 
-        [HttpPost]// butona tıklandıgında alttaki metod çalışacak
+        [HttpPost]
         public ActionResult AddWriter(Writer writer)
         {
-            writerManager.WriterAddBl(writer);
-            return RedirectToAction("GetWriterList");
+
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                wm.WriterAddBll(writer);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
+        [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writerValue = wm.GetById(id);
+            return View(writerValue);
+        }
+
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(writer);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+
+        }
+
     }
+
 }
