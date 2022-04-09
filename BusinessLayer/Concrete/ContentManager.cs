@@ -44,5 +44,9 @@ namespace BusinessLayer.Concrete
         {
             return _contentDal.List();
         }
+        public List<Content> GetListHeadingId(int Id)
+        {
+            return _contentDal.List(x => x.HeadingId == Id);
+        }
     }
 }
