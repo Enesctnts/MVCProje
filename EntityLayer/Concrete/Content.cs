@@ -21,6 +21,7 @@ namespace EntityLayer.Concrete
 
         public DateTime ContentDate { get; set; }
 
+        public bool ContentStatus { get; set; }
         public virtual Heading Heading { get; set; }
        
        public virtual Writer Writer { get; set; }
