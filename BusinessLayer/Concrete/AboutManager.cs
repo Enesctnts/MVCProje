@@ -18,21 +18,21 @@ namespace BusinessLayer.Concrete
             _aboutDal = aboutDal;
         }
 
-        public void AboutAddBl(About heading)
+        public void AboutAddBl(About about)
         {
 
-            _aboutDal.Insert(heading);
+            _aboutDal.Insert(about);
 
         }
 
-        public void AboutDelete(About heading)
+        public void AboutDelete(About about)
         {
-            _aboutDal.Delete(heading);
+            _aboutDal.Delete(about);
         }
 
-        public void AboutUpdate(About heading)
+        public void AboutUpdate(About about)
         {
-            _aboutDal.Update(heading);
+            _aboutDal.Update(about);
         }
 
         public About GetById(int id)
