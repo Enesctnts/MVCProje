@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -11,32 +12,24 @@ namespace MvcUI.Controllers
 {
     public class ContactController : Controller
     {
-
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+        ContactValidator validationRules = new ContactValidator();
         // GET: Category
         public ActionResult Index()
-        {
-            return View();
-        }
-        ContactManager contactManager = new ContactManager(new EfContactDal());
-
-        public ActionResult GetContactList()
         {
             var contactvalues = contactManager.GetList();
             return View(contactvalues);
         }
 
-
-        [HttpGet]// sayfa ilk yüklendiğinde alttaki metod çalışacak
-        public ActionResult AddContact()
+        public ActionResult GetContactDetails(int id)
         {
-            return View();
+            var contactvalues = contactManager.GetById(id);
+            return View(contactvalues);
         }
-
-        [HttpPost]// butona tıklandıgında alttaki metod çalışacak
-        public ActionResult AddContact(Contact category)
+        
+       public PartialViewResult MessageListMenu()
         {
-            contactManager.ContactAddBl(category);
-            return RedirectToAction("GetContactList");
+            return PartialView();
         }
     }
 }
