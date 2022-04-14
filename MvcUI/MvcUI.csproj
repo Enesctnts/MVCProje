@@ -178,6 +178,7 @@
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\img\2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\4.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\Abdullah.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\AdminLTELogo.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar04.png" />
@@ -194,7 +195,12 @@
     <Content Include="AdminLTE-3.0.4\dist\img\credit\paypal2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\credit\visa.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\default-150x150.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\DicleKANAT.jpeg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\Enes.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\Ezgi.JPG" />
     <Content Include="AdminLTE-3.0.4\dist\img\icons.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\kerem.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\okan.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo1.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo3.jpg" />
@@ -204,6 +210,9 @@
     <Content Include="AdminLTE-3.0.4\dist\img\prod-3.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-4.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-5.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\SemanurMutlu.jpeg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\tugba.jfif" />
+    <Content Include="AdminLTE-3.0.4\dist\img\Tuğçe Gültekin.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user1-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user2-160x160.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user3-128x128.jpg" />
@@ -2273,8 +2282,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
     <Content Include="Views\Category\AddCategory.cshtml" />
-    <Content Include="Views\Contact\GetContactList.cshtml" />
-    <Content Include="Views\Contact\AddContact.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminCategory\Index.cshtml" />
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
@@ -2289,6 +2296,9 @@
     <Content Include="Views\Heading\EditHeading.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\About\AboutPartial.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\GetContactDetails.cshtml" />
+    <Content Include="Views\Contact\MessageListMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
