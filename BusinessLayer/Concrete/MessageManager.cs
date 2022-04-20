@@ -18,9 +18,9 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
-        public Category GetById(int id)
+        public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.Get(x => x.MessageId == id);
         }
 
         public List<Message> GetListInbox()
@@ -34,9 +34,9 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
 
-        public void MessageAddBl(Message message)
+        public void MessageAdd(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Insert(message);
         }
 
         public void MessageDelete(Message message)
