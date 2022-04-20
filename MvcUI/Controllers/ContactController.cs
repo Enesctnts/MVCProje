@@ -17,6 +17,7 @@ namespace MvcUI.Controllers
         // GET: Category
         public ActionResult Index()
         {
+            TempData["ContactCount"] = contactManager.GetList().Count();
             var contactvalues = contactManager.GetList();
             return View(contactvalues);
         }
