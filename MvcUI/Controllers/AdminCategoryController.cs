@@ -14,6 +14,8 @@ namespace MvcUI.Controllers
     public class AdminCategoryController : Controller
     {
         // GET: AdminCategory
+
+        [Authorize(Roles="A")]//Sadece B rolüne sahip kişiler görüntüleyebilir 
         public ActionResult Index()
         {
             var categoryvalues = categoryManager.GetList();
