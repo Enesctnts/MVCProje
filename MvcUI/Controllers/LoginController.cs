@@ -31,7 +31,6 @@ namespace MvcUI.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
         }
 
        
