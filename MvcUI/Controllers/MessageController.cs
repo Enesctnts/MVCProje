@@ -15,6 +15,8 @@ namespace MvcUI.Controllers
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+      
+        [Authorize]
         public ActionResult Inbox()
         {
             TempData["InboxCount"] = messageManager.GetListInbox().Count();
