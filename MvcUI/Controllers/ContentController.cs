@@ -10,7 +10,7 @@ namespace MvcUI.Controllers
 {
     public class ContentController : Controller
     {
-        // GET: Content
+        
         ContentManager contentManager = new ContentManager( new EfContentDal());
 
         public ActionResult Index()
