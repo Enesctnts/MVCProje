@@ -11,14 +11,16 @@ namespace MvcUI.Controllers
     public class DefaultController : Controller
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        ContentManager contentManager = new ContentManager(new EfContentDal());   
         public ActionResult Headings()
         {
             var headinglist = headingManager.GetList();
             return View(headinglist);
         }
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            var contentlist = contentManager.GetList();
+            return PartialView(contentlist);
         }
     }
 }
