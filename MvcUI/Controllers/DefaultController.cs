@@ -17,9 +17,9 @@ namespace MvcUI.Controllers
             var headinglist = headingManager.GetList();
             return View(headinglist);
         }
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id=0)
         {
-            var contentlist = contentManager.GetList();
+            var contentlist = contentManager.GetListHeadingId(id);
             return PartialView(contentlist);
         }
     }
