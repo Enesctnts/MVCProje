@@ -17,17 +17,17 @@ namespace MvcUI.Controllers
         MessageValidator messageValidator = new MessageValidator();
       
         [Authorize]
-        public ActionResult Inbox()
+        public ActionResult Inbox(string mail)
         {
-            TempData["InboxCount"] = messageManager.GetListInbox().Count();
-            var messagelist = messageManager.GetListInbox();
+            TempData["InboxCount"] = messageManager.GetListInbox(mail).Count();
+            var messagelist = messageManager.GetListInbox(mail);
             return View(messagelist);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string mail)
         {
-            TempData["SendCount"] = messageManager.GetListSendbox().Count();
-            var messagelist = messageManager.GetListSendbox();
+            TempData["SendCount"] = messageManager.GetListSendbox(mail).Count();
+            var messagelist = messageManager.GetListSendbox(mail);
             return View(messagelist);
         }
 
