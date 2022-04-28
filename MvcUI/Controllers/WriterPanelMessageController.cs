@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -15,17 +16,20 @@ namespace MvcUI.Controllers
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+        Context context = new Context();
         public ActionResult Inbox()
         {
-            TempData["InboxCount"] = messageManager.GetListInbox().Count();
-            var messagelist = messageManager.GetListInbox();
+            string mail = (string)Session["WriterMail"];
+            TempData["InboxCount"] = messageManager.GetListInbox(mail).Count();
+            var messagelist = messageManager.GetListInbox(mail);
             return View(messagelist);
         }
 
         public ActionResult Sendbox()
         {
-            TempData["SendCount"] = messageManager.GetListSendbox().Count();
-            var messagelist = messageManager.GetListSendbox();
+            string mail = (string)Session["WriterMail"];
+            TempData["SendCount"] = messageManager.GetListSendbox(mail).Count();
+            var messagelist = messageManager.GetListSendbox(mail);
             return View(messagelist);
         }
 
@@ -55,10 +59,11 @@ namespace MvcUI.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message message)
         {
+            string mail = (string)Session["WriterMail"];
             ValidationResult results = messageValidator.Validate(message);
             if (results.IsValid)
             {
-                message.SenderMail = "enesctnts@gmail.com";
+                message.SenderMail = mail;
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("Sendbox");
