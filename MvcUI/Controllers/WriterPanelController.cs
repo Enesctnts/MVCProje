@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using BusinessLayer.ValidationRules;
 
 namespace MvcUI.Controllers
 {
@@ -14,11 +18,38 @@ namespace MvcUI.Controllers
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
         Context c = new Context();
 
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id)
         {
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault().Value;
+            var writervalue = writerManager.GetById(id);
+            return View(writervalue);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                writerManager.WriterUpdate(writer);
+                return RedirectToAction("AllHeading","WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
             return View();
+
         }
 
         public ActionResult MyHeading(string p)
@@ -84,6 +115,14 @@ namespace MvcUI.Controllers
             headingManager.HeadingUpdate(headingvalue);
             return RedirectToAction("MyHeading");
         }
+
+        public ActionResult AllHeading(int sayfa = 1)
+        {
+
+            var headings = headingManager.GetList().ToPagedList(sayfa,4);
+            return View(headings);
+        }
+
 
     }
 }
