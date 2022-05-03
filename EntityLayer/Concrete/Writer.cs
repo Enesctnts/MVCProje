@@ -11,7 +11,7 @@ namespace EntityLayer.Concrete
     public class Writer:IEntity
     {
         [Key]
-        public int? WriterId { get; set; }
+        public int WriterId { get; set; }
 
         [StringLength(20)]
         public string WriterName { get; set; }
