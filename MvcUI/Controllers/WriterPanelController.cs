@@ -23,10 +23,10 @@ namespace MvcUI.Controllers
         Context c = new Context();
 
         [HttpGet]
-        public ActionResult WriterProfile(int id)
+        public ActionResult WriterProfile()
         {
             string p = (string)Session["WriterMail"];
-            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault().Value;
+            var id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
             var writervalue = writerManager.GetById(id);
             return View(writervalue);
         }
@@ -56,7 +56,7 @@ namespace MvcUI.Controllers
         {
             
             p = (string)Session["WriterMail"];
-            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault().Value;
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
             var values = headingManager.GetListByWriter(writeridinfo);
             return View(values);
         }
@@ -78,7 +78,7 @@ namespace MvcUI.Controllers
         public ActionResult NewHeading(Heading heading)
         {
             string writermailinfo = (string)Session["WriterMail"];
-            var writeridinfo = c.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterId).FirstOrDefault().Value;
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.WriterId = writeridinfo;
             heading.HeadingStatus = true;
