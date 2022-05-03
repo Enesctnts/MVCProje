@@ -18,7 +18,7 @@ namespace MvcUI.Controllers
         {
             
             p = (string)Session["WriterMail"];
-            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault().Value;
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
             var contentvalues = contentManager.GetListByWriter(writeridinfo);
             return View(contentvalues);
         }
@@ -33,7 +33,7 @@ namespace MvcUI.Controllers
         public ActionResult AddContent(Content content)
         {
             string mail = (string)Session["WriterMail"];
-            var writeridinfo = c.Writers.Where(x => x.WriterMail == mail).Select(y => y.WriterId).FirstOrDefault().Value;
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == mail).Select(y => y.WriterId).FirstOrDefault();
             var contentvalues = contentManager.GetListByWriter(writeridinfo);
             content.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             content.WriterId = writeridinfo;
@@ -42,10 +42,7 @@ namespace MvcUI.Controllers
             return RedirectToAction("MyContent");
         }
 
-        public ActionResult ToDoList()
-        {
-            return View();
-        }
+       
 
     }
 }
