@@ -11,11 +11,12 @@ using System.Web.Mvc;
 
 namespace MvcUI.Controllers
 {
+    [Authorize(Roles = "A")]
     public class AdminCategoryController : Controller
     {
         // GET: AdminCategory
 
-        [Authorize(Roles="A")]//Sadece B rolüne sahip kişiler görüntüleyebilir 
+        [Authorize(Roles="A")]//Sadece A rolüne sahip kişiler görüntüleyebilir 
         public ActionResult Index()
         {
             var categoryvalues = categoryManager.GetList();
