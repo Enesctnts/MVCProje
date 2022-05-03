@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace MvcUI.Controllers
 {
     public class HomeController : Controller
     {
+        ProjectPicturesManager projectPicturesManager = new ProjectPicturesManager(new EfProjectPicturesDal());
         public ActionResult Index()
         {
             return View();
@@ -25,6 +28,12 @@ namespace MvcUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [AllowAnonymous]
+        public ActionResult HomePage()
+        {
+            var files = projectPicturesManager.GetList();
+            return View(files);
         }
     }
 }
