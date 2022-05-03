@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ namespace MvcUI.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -43,8 +47,11 @@ namespace MvcUI.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            Context context = new Context();
-            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.Password == writer.Password);
+            //Context context = new Context();
+            //var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.Password == writer.Password);
+
+            var writerUserInfo = writerLoginManager.GetWriter(writer.WriterMail, writer.Password);
+
             if (writerUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);
