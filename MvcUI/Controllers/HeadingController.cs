@@ -20,6 +20,14 @@ namespace MvcUI.Controllers
             var headingvalues = headingManager.GetList();
             return View(headingvalues);
         }
+
+        public ActionResult HeadingReport()//Raporlar sayfası
+        {
+            var headingvalues = headingManager.GetList();
+            return View(headingvalues);
+        }
+
+
         [HttpGet]
         public ActionResult AddHeading()
         {
