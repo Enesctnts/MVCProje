@@ -31,6 +31,7 @@ namespace MvcUI.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+            //Burayı yapma amacımız Başlık eklerken kategoriler ve  yazarlar DropDownListFor gelmesini istediğimiz için
             List<SelectListItem> valuecategory = (from x in categoryManager.GetList()
                                                   select new SelectListItem
                                                   {
