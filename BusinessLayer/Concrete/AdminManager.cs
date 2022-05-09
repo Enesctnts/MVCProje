@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void AdminAddBl(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Insert(admin);
         }
 
         public void AdminDelete(Admin admin)
@@ -30,12 +30,12 @@ namespace BusinessLayer.Concrete
 
         public void AdminUpdate(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(admin);
         }
 
         public Admin GetById(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.Get(x => x.AdminId == id);
         }
 
         public List<Admin> GetList()
