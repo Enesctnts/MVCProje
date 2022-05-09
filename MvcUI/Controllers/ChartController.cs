@@ -20,6 +20,7 @@ namespace MvcUI.Controllers
             return Json(BlogList(), JsonRequestBehavior.AllowGet);
         }
 
+        //Aşagıdaki kategoriler için grafik oluşturma işlemi yaptık. Veritabanına kaydedip uğraşmak yerine Index oluşturup ordan categoryChart çagırıp ordanda Bloglist i çagırdık.
         public List<CategoryClass> BlogList()
         {
             List<CategoryClass> categoryClasses = new List<CategoryClass>();
