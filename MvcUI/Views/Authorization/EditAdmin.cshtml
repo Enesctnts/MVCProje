@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "EditAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<h2>Admin Güncelle Sayfası</h2>
+
+@using (Html.BeginForm("EditAdmin", "Authorization", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.HiddenFor(p => p.AdminId, new { @class = "form-control" })
+
+        @Html.Label("Admin Kullanıcı Adı", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.AdminUserName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Şifre", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.AdminPassword, new { @class = "form-control" })
+        <br />
+        @Html.Label("Rol", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.AdminRole, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success" id="btn">Güncelle</button>
+    </div>
+
+
+    <script>
+        $('#btn').click(function () {
+            swal("Tebriklerr!", "Başarılı bir şekilde eklendi!", "success");
+        })
+    </script>
+
+}
+
