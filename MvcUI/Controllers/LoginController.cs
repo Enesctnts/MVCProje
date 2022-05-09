@@ -11,7 +11,7 @@ using System.Web.Security;
 
 namespace MvcUI.Controllers
 {
-    [AllowAnonymous]
+    [AllowAnonymous] // her sayfa için yetkilendirme işlemi yapsak bile bu login sayfası AllowAnonymous sayesinde bundan etkilenmicek.
     public class LoginController : Controller
     {
         WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
