@@ -1,21 +1,21 @@
 
-#  ASP.NET MVC CAMP (2022 APRIL - JULY) 
+#  ASP.NET MVC KAMPI (2021 MART - MAYIS)
 
-## TASKLIST :
+## GÖREV LİSTESİ :
 
-ASP.NET MVC is an online interactive dictionary development project. (Example EksiSözlük)
+ASP.NET MVC, çevrimiçi etkileşimli bir sözlük geliştirme projesidir. (Örnek EksiSözlük)
 
 
-### Request 1 : Creating a database using sql server (tables: abouts, categories, contacts, contents, headings, writers)
+### Talep 1: SQL server kullanarak bir veritabanı oluşturma (Tablolar: Hakkında, Kategoriler, Kişiler, ,İçerikler, Başlıklar, Yazarlar)
 
   <img src= https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/DB%20Schema.jpg />
 
-### Request 2 : A N-tiered project will be developed in corporate architecture
+### Talep 2: Kurumsal mimaride N katmanlı proje geliştirilecek
 
   <img src=https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/NLayered%20Architecture.jpg />
 
 
-## ScreenShoots
+## Ekran Görüntüleri
  
   <p>Heading<p/>
   <img src=https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/Ads%C4%B1z7.png />
