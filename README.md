@@ -1,8 +1,6 @@
 
 ##  ASP.NET MVC KAMPI (2021 MART - MAYIS)
 
-## GÖREV LİSTESİ :
-
 ASP.NET MVC, çevrimiçi etkileşimli bir sözlük geliştirme projesidir. (Örnek EksiSözlük)
 
 
