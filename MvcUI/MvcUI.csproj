@@ -186,6 +186,7 @@
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\css\style.css" />
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\img\bg.jpg" />
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\index.html" />
+    <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\NLayered Architecture.jpg" />
     <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\readme.txt" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.min.css" />
