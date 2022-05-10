@@ -4,7 +4,8 @@
 ASP.NET MVC, çevrimiçi etkileşimli bir sözlük geliştirme projesidir. (Örnek EksiSözlük)
 
 
-### SQL Server kullanarak bir veritabanı oluşturma (Tablolar: Hakkında, Kategoriler, Kişiler, ,İçerikler, Başlıklar, Yazarlar)
+### SQL Server kullanarak bir veritabanı oluşturma 
+#### Tablolar: Hakkında, Kategoriler, Kişiler, ,İçerikler, Başlıklar, Yazarlar
 
   <img src= https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/DB%20Schema.jpg />
 
