@@ -9,7 +9,7 @@ ASP.NET MVC, çevrimiçi etkileşimli bir sözlük geliştirme projesidir. (Örn
 
   <img src= https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/DB%20Schema.jpg />
 
-### Kurumsal mimaride N katmanlı proje geliştirilecek
+### Kurumsal mimaride N katmanlı proje 
 
   <img src=https://github.com/Enesctnts/MVCProjeUI/blob/master/MvcUI/AdminLTE-3.0.4/Image/NLayered%20Architecture.jpg />
 
