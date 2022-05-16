@@ -1,7 +1,7 @@
 
 ##  ASP.NET MVC KAMPI (2021 MART - MAYIS)
 
-ASP.NET MVC, çevrimiçi etkileşimli bir sözlük geliştirme projesidir. (Örnek EksiSözlük)
+ASP.NET MVC, Sözlük Sitesi. (Örnek EksiSözlük)
 
 
 ### SQL Server kullanarak bir veritabanı oluşturma 
